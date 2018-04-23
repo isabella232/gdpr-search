@@ -15,6 +15,11 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="{{ article.sections_list.0.content }}" />
     <meta name="twitter:title" content="{{ article.label }} {{ article.name }} | General Data Protection Regulation (GDPR)" />
+    {% for language_code in article.get_available_languages_code %}
+        {% language language_code %}
+        <link rel="alternate" hreflang="{{ language_code }}" href="{{ request.scheme }}://{{ request.get_host }}{% url 'article' id=article.index %}">
+        {% endlanguage %}
+    {% endfor %}
 {% endblock %}
 
 {% block title %}

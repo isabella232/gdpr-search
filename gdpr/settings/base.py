@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
 
 # Application definition
 
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 
     'hvad',
     'django_extensions',
@@ -148,8 +151,4 @@ WEBPACK_LOADER = {
         'BUNDLE_DIR_NAME': 'bundles/',
         'STATS_FILE': os.path.join(os.path.dirname(BASE_DIR), 'webpack-stats.json'),
     }
-}
-
-HVAD = {
-    'AUTOLOAD_TRANSLATIONS': True
 }

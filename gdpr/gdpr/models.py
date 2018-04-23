@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 from hvad.models import TranslatableModel, TranslatedFields
 
@@ -47,6 +48,19 @@ class Article(TranslatableModel):
             null=True
         )
     )
+
+    def get_absolute_url(self):
+        return reverse('article', kwargs={
+            'id': self.index
+        })
+
+    def get_available_languages_code(self):
+        return Article.objects.language('all').filter(
+            index=self.index
+        ).values_list(
+            'language_code',
+            flat=True
+        )
 
     class Meta:
         ordering = ['chapter__index', 'index']

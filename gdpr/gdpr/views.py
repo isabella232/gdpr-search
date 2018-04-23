@@ -1,5 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView
 
 from .models import Article, Chapter
 
@@ -38,8 +38,8 @@ class ArticleView(TemplateView):
     template_name = 'index.html'
 
     def get_article(self):
-        slug = self.kwargs['slug']
-        article = Article.objects.language().get(slug=slug)
+        index = self.kwargs['id']
+        article = Article.objects.language().get(index=index)
 
         return get_article_with_sections(article)
 
@@ -58,14 +58,3 @@ class ArticleView(TemplateView):
             next_article=next_article,
             **kwargs
         )
-
-
-class DefinitionsView(View):
-
-    def get(self, *args, **kwargs):
-        definitions = [
-            {
-
-            }
-            for definition in Article.objects.language().filter(index)
-        ]

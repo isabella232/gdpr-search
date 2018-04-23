@@ -14,22 +14,37 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.i18n import i18n_patterns
 
 from macrosurl import url
 
+from .gdpr.sitemap import GdprSitemap
 from .gdpr.views import IndexView, ArticleView
 
-urlpatterns = i18n_patterns(
+
+sitemap_patterns = [
+    url(
+        r'^sitemap\.xml$',
+        sitemap,
+        {'sitemaps': {'articles': GdprSitemap()}, 'template_name': 'sitemap.html'},
+        name='django.contrib.sitemaps.views.sitemap'
+    )
+]
+
+
+i18n_urlpatterns = i18n_patterns(
     url(
         '',
         IndexView.as_view(),
         name='index'
     ),
     url(
-        ':slug',
+        'article-:id',
         ArticleView.as_view(),
         name='article'
     ),
     prefix_default_language=False
 )
+
+urlpatterns = sitemap_patterns + i18n_urlpatterns

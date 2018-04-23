@@ -21,7 +21,7 @@
             <ul style="{% if article.chapter.index != chapter.index %}display: none;{% endif %}">
               {% for chapter_article in chapter.articles.language.all %}
                   <li class="mainMenu__article">
-                    <a href="{% url 'article' slug=chapter_article.slug %}">
+                    <a href="{{ chapter_article.get_absolute_url }}">
                       {{ chapter_article.label }}. {{ chapter_article.name }}
                     </a>
                   </li>
