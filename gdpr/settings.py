@@ -25,7 +25,9 @@ SECRET_KEY = '#@!#9+hxw_*!&v%i4$k^%mlx==njqbp!uhux+_+=y!)538(un4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'gdpr-search.herokuapp.com'
+]
 
 
 # Application definition
