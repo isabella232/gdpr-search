@@ -3,7 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
-    path = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sys.path.append(path)
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.prod")
     try:
