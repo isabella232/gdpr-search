@@ -6,8 +6,8 @@ from .models import Article, Chapter
 
 def get_article_with_sections(article):
     article.sections_list = []
-    for section in article.sections.language().filter(parent_index__isnull=True):
-        section.subsections = article.sections.language().filter(parent_index=section.index)
+    for section in article.sections.filter(parent_index__isnull=True):
+        section.subsections = article.sections.filter(parent_index=section.index)
         article.sections_list.append(section)
 
     return article
@@ -19,15 +19,17 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
 
-        article = get_article_with_sections(Article.objects.language().first())
+        article = get_article_with_sections(
+            Article.objects.language().prefetch_related('chapter', 'sections').first()
+        )
         try:
             next_article = Article.objects.language().get(index=article.index+1)
         except ObjectDoesNotExist:
             next_article = None
 
         return super().get_context_data(
-            chapters=Chapter.objects.language().all(),
-            article=get_article_with_sections(Article.objects.language().first()),
+            chapters=Chapter.objects.language().prefetch_related('articles').all(),
+            article=get_article_with_sections(article),
             next_article=next_article,
             **kwargs
         )
@@ -39,7 +41,10 @@ class ArticleView(TemplateView):
 
     def get_article(self):
         index = self.kwargs['id']
-        article = Article.objects.language().get(index=index)
+        article = Article.objects.language().prefetch_related(
+            'chapter',
+            'sections'
+        ).get(index=index)
 
         return get_article_with_sections(article)
 
