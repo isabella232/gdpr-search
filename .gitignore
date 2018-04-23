@@ -92,4 +92,4 @@ db.sqlite3
 node_modules
 
 gdpr/static/bundles
-gdpr/static/CACHE
+gdpr/static/CACHE/*/*
