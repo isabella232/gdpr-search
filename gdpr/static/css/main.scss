@@ -380,12 +380,17 @@ a {
         height: 18px;
       }
     }
+
+    .ais-SearchBox-reset {
+      margin-right: 22px;
+    }
   }
 
   .search-results {
     display: none;
     opacity: 0;
     margin-top: 50px;
+    background: #ffffff;
   }
 
   a.search-escape {

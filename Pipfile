@@ -18,6 +18,8 @@ django-webpack-loader = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-heroku = "*"
+algoliasearch = "*"
+algoliasearch-django = "*"
 
 [dev-packages]
 

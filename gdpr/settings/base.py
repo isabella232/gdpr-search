@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'compressor',
     'webpack_loader',
 
-    'gdpr'
+    'gdpr.gdpr'
 ]
 
 MIDDLEWARE = [
@@ -151,4 +151,9 @@ WEBPACK_LOADER = {
         'BUNDLE_DIR_NAME': 'bundles/',
         'STATS_FILE': os.path.join(os.path.dirname(BASE_DIR), 'webpack-stats.json'),
     }
+}
+
+ALGOLIA = {
+    'APPLICATION_ID': 'OA3O0E2RHO',
+    'API_KEY': 'a1a60406a68a345b246d23ddfc09db5a'
 }
