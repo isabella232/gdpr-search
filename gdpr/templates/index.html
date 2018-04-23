@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+{% load render_bundle from webpack_loader %}
+{% load i18n %}
+
+{% get_current_language as CURRENT_LANG %}
+
+{% block head %}
+    <link rel="canonical" href="https://gdpr-info.eu/art-12-gdpr/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject | General Data Protection Regulation (GDPR)" />
+    <meta property="og:description" content="1The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically &hellip; Continue reading Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject" />
+    <meta property="og:url" content="https://gdpr-info.eu/art-12-gdpr/" />
+    <meta property="og:site_name" content="General Data Protection Regulation (GDPR)" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="1The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically &hellip; Continue reading Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject" />
+    <meta name="twitter:title" content="Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject | General Data Protection Regulation (GDPR)" />
+    <link rel="alternate" hreflang="de-DE" href="https://dsgvo-gesetz.de/art-12-dsgvo/">
+    <link rel="alternate" hreflang="en-US" href="https://gdpr-info.eu/art-12-gdpr/">
+{% endblock %}
+
+{% block title %}
+    GDPR Official text - {{ article.label }} - {{ article.name }}
+{% endblock %}
+
+{% block body %}
+    <div class="row no-gutters">
+        <div class="col-3">
+            <div class="left-container">
+                {% include '_menu.html' %}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row header no-gutters">
+                <div class="col-12 search__container">
+                    <div id="search"></div>
+                    <script type="text/javascript">
+                      window.language_code = "{{ CURRENT_LANG }}";
+                      window.react_mount = document.getElementById('search');
+                    </script>
+                    {% render_bundle 'search' %}
+                </div>
+            </div>
+            <div class="content__container main">
+                {% if article.index == 1 %}
+                <h1>General Data<br/>Protection Regulation</h1>
+                <p>
+                    Here you can find the official PDF of the Regulation (EU) 2016/679 (General Data Protection Regulation) as a
+                    neatly arranged website. All Articles of the GDPR are linked with suitable recitals.
+                    The European Data Protection Regulation will be applicable as of May 25th, 2018 in all member states to harmonize data
+                    privacy laws across Europe. If you find the page useful, feel free to support us by sharing the project.
+                </p>
+                {% endif %}
+                {% include '_article.html' %}
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="right-container">
+                <div class="recitals__header">
+                    <div class="recitals__header__content">
+                        <span class="link-icon">
+                            <i class="fa fa-link"></i>
+                        </span>
+                        <span class="title">Suitable Recitals</span>
+                    </div>
+                </div>
+                <div class="recitals">
+                    <div class="recitals__container">
+                        <h3><i class="fa fa-link"></i>Suitable Recitals</h3>
+                        <ul class="list-unstyled">
+                        {% for recital in article.recitals.language.all %}
+                            <li>
+                                <span class="index">{{ recital.index }}</span>
+                                <span>{{ recital.text|truncatechars:50 }}</span>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
