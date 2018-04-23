@@ -1,5 +1,7 @@
 from .base import *
 
-ALLOWED_HOSTS = [
-    'gdpr-search.herokuapp.com'
-]
+import django_heroku
+
+DEBUG = True
+
+django_heroku.settings(locals())
