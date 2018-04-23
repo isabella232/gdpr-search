@@ -17,6 +17,7 @@ django-hvad = "==1.8.0"
 django-webpack-loader = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-heroku = "*"
 
 [dev-packages]
 
