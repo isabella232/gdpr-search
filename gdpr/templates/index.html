@@ -5,18 +5,16 @@
 {% get_current_language as CURRENT_LANG %}
 
 {% block head %}
-    <link rel="canonical" href="https://gdpr-info.eu/art-12-gdpr/" />
-    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+    <meta property="og:locale" content="{{ CURRENT_LANG }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject | General Data Protection Regulation (GDPR)" />
-    <meta property="og:description" content="1The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically &hellip; Continue reading Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject" />
-    <meta property="og:url" content="https://gdpr-info.eu/art-12-gdpr/" />
+    <meta property="og:title" content="{{ article.label }} {{ article.name }} | General Data Protection Regulation (GDPR)" />
+    <meta property="og:description" content="{{ article.sections_list.0.content }}" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:site_name" content="General Data Protection Regulation (GDPR)" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:description" content="1The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically &hellip; Continue reading Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject" />
-    <meta name="twitter:title" content="Art. 12 GDPR – Transparent information, communication and modalities for the exercise of the rights of the data subject | General Data Protection Regulation (GDPR)" />
-    <link rel="alternate" hreflang="de-DE" href="https://dsgvo-gesetz.de/art-12-dsgvo/">
-    <link rel="alternate" hreflang="en-US" href="https://gdpr-info.eu/art-12-gdpr/">
+    <meta name="twitter:description" content="{{ article.sections_list.0.content }}" />
+    <meta name="twitter:title" content="{{ article.label }} {{ article.name }} | General Data Protection Regulation (GDPR)" />
 {% endblock %}
 
 {% block title %}
