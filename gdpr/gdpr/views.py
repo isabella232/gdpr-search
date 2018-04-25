@@ -1,7 +1,19 @@
+import json
+
+from django.utils.functional import cached_property
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import TemplateView
 
-from .models import Article, Chapter
+from .models import Article, Chapter, Definition
+
+
+def get_definitions(article):
+    return json.dumps({
+        definition_object.term: definition_object.definition.content
+        for definition_object in Definition.objects.filter(
+            language_code=article.language_code
+        )
+    })
 
 
 def get_article_with_sections(article):
@@ -31,15 +43,21 @@ class IndexView(TemplateView):
             chapters=Chapter.objects.language().prefetch_related('articles').all(),
             article=get_article_with_sections(article),
             next_article=next_article,
+            definitions=get_definitions(),
             **kwargs
         )
 
 
 class ArticleView(TemplateView):
 
-    template_name = 'index.html'
+    def get_template_names(self):
+        if self.request.is_ajax():
+            return '_article.html'
+        else:
+            return 'index.html'
 
-    def get_article(self):
+    @cached_property
+    def article(self):
         index = self.kwargs['id']
         article = Article.objects.language().prefetch_related(
             'chapter',
@@ -50,16 +68,15 @@ class ArticleView(TemplateView):
 
     def get_context_data(self, **kwargs):
 
-        article = self.get_article()
-
         try:
-            next_article = Article.objects.language().get(index=article.index+1)
+            next_article = Article.objects.language().get(index=self.article.index+1)
         except ObjectDoesNotExist:
             next_article = None
 
         return super().get_context_data(
             chapters=Chapter.objects.language().all(),
-            article=self.get_article(),
+            article=self.article,
             next_article=next_article,
+            definitions=get_definitions(self.article),
             **kwargs
         )

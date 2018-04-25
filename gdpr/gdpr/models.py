@@ -111,3 +111,17 @@ class Recital(TranslatableModel):
 
     class Meta:
         ordering = ['index']
+
+
+class Definition(models.Model):
+    language_code = models.CharField(
+        max_length=2
+    )
+
+    term = models.CharField(
+        max_length=550
+    )
+    definition = models.ForeignKey(
+        Section,
+        on_delete=models.CASCADE
+    )

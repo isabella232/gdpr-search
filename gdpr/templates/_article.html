@@ -1,34 +1,57 @@
-<article class="article">
-    <div class="chapter">
-        <h2 class="chapter__title">
-        <span class="chapter__title__index">{{ article.chapter.label }}</span>
-        <span class="chapter__title__label">{{ article.chapter.name }}</span>
-        </h2>
+<article class="article-container">
+    <div id="inner-content">
+        <div class="article">
+            <div class="chapter">
+                <h2 class="chapter__title">
+                <span class="chapter__title__index">{{ article.chapter.label }}</span>
+                <span class="chapter__title__label">{{ article.chapter.name }}</span>
+                </h2>
+            </div>
+            <h3 class="article__title">
+                {{ article.label }}. {{ article.name }}
+            </h3>
+            <ul class="list-unstyled article__list_level0">
+                {% for section in article.sections_list %}
+                    <li class="{% if not section.label %}no-label{% endif %}">
+                        <p id="section-{{ section.index }}">{% if section.label %}{{ section.label }}&nbsp;&nbsp;&nbsp;{% endif %} {{ section.content }}</p>
+                        <ul class="list-unstyled">
+                            {% for subsection in section.subsections %}
+                                <li>
+                                    <p id="section-{{ subsection.index }}">{{ subsection.label }}&nbsp;&nbsp;&nbsp;{{ subsection.content }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            	var definitions = {{ definitions|safe }};
+            	var terms = Object.keys(definitions);
+            	$(".article__list_level0").mark(terms, {
+            		separateWordSearch: false,
+            		done: function() {
+            			$('[data-markjs="true"]').popover({
+                          title: function() {
+                            return $(this).text();
+                          },
+                          content: function() {
+                          	return definitions[$(this).text().toLowerCase()];
+                          }
+                        })
+                    }
+                });
+            });
+        </script>
+        <a class="next-article" href="{{ next_article.get_absolute_url }}">
+            <p>Next</p>
+            <p class="name">
+                {{ next_article.label }}. {{ next_article.name }}
+            </p>
+            <span class="arrow-down">
+                <i class="fa fa-arrow-down"></i>
+            </span>
+        </a>
     </div>
-    <h3 class="article__title">
-        {{ article.label }}. {{ article.name }}
-    </h3>
-    <ul class="list-unstyled article__list_level0">
-        {% for section in article.sections_list %}
-            <li class="{% if not section.label %}no-label{% endif %}">
-                <p>{% if section.label %}{{ section.label }}&nbsp;&nbsp;&nbsp;{% endif %} {{ section.content }}</p>
-                <ul class="list-unstyled">
-                    {% for subsection in section.subsections %}
-                        <li>
-                            <p>{{ subsection.label }}&nbsp;&nbsp;&nbsp;{{ subsection.content }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
 </article>
-<a class="next-article" href="{{ next_article.get_absolute_url }}">
-    <p>Next</p>
-    <p class="name">
-        {{ next_article.label }}. {{ next_article.name }}
-    </p>
-    <span class="arrow-down">
-        <i class="fa fa-arrow-down"></i>
-    </span>
-</a>

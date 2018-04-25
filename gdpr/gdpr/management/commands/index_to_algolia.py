@@ -91,6 +91,11 @@ class Command(BaseCommand):
         self.stdout.write('Indexing recitals')
         for language in LANGUAGES:
             index = client.init_index(f'dev_GDRPR_recitals_{language}')
+            index.set_settings({
+                'attributesToSnippet': [
+                    'text:15'
+                ]
+            })
             index.add_objects(
                 {
                     'objectID': recital['id'],
