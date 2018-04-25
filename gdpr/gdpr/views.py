@@ -29,21 +29,24 @@ class IndexView(TemplateView):
 
     template_name = 'index.html'
 
-    def get_context_data(self, **kwargs):
-
-        article = get_article_with_sections(
+    @cached_property
+    def article(self):
+        return get_article_with_sections(
             Article.objects.language().prefetch_related('chapter', 'sections').first()
         )
+
+    def get_context_data(self, **kwargs):
+
         try:
-            next_article = Article.objects.language().get(index=article.index+1)
+            next_article = Article.objects.language().get(index=self.article.index+1)
         except ObjectDoesNotExist:
             next_article = None
 
         return super().get_context_data(
             chapters=Chapter.objects.language().prefetch_related('articles').all(),
-            article=get_article_with_sections(article),
+            article=self.article,
             next_article=next_article,
-            definitions=get_definitions(),
+            definitions=get_definitions(self.article),
             **kwargs
         )
 
