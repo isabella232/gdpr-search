@@ -70,7 +70,7 @@ class Command(BaseCommand):
             index.set_settings({
                 'searchableAttributes': [
                     'chapter__label',
-                    'unordered(chapter__name)'
+                    'unordered(chapter__name)',
                     'label',
                     'unordered(name)',
                 ]
