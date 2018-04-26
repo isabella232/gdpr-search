@@ -74,11 +74,11 @@
                         {% for recital in article.recitals.language.all %}
                             <li>
                                 <span class="index">{{ recital.index }}</span>
-                                <a href="#" data-toggle="modal" data-target="#recital-{{ recital.index }}">
+                                <a href="#" data-toggle="modal" data-target="#recital-{{ recital.index }}-sidebar">
                                     <span>{{ recital.text|truncatechars:50 }}</span>
                                 </a>
                             </li>
-                            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="recital-{{ recital.index }}-title" aria-hidden="true" id="recital-{{ recital.index }}">
+                            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="recital-{{ recital.index }}-title" aria-hidden="true" id="recital-{{ recital.index }}-sidebar">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
