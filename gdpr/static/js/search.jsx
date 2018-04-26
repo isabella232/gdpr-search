@@ -59,7 +59,7 @@ class Search extends React.Component {
         apiKey="9c1dd06a40440adc4e7a50d485bd46d5"
         indexName={chapterIndexName}
       >
-        <Configure hitsPerPage={5} />
+        <Configure hitsPerPage={5} removeWordsIfNoResults="allOptional" />
         <SearchBox
           onChange={this.handleChange.bind(this)}
           onReset={this.onEscape.bind(this)}
@@ -77,7 +77,7 @@ class Search extends React.Component {
             <div className="col-4">
               <h3><span>Articles</span></h3>
               <Index indexName={articlesIndexName}>
-                <Configure hitsPerPage={5} />
+                <Configure hitsPerPage={5} removeWordsIfNoResults="allOptional" />
                 <ConnectedArticles onLinkClick={this.onLinkClick} />
                 <ConnectedPagination offset={3} />
               </Index>
@@ -85,7 +85,7 @@ class Search extends React.Component {
             <div className="col-4">
               <h3><span>Recitals</span></h3>
               <Index indexName={recitalsIndexName}>
-                <Configure hitsPerPage={10} />
+                <Configure hitsPerPage={10} removeWordsIfNoResults="allOptional" />
                 <ConnectedRecitals onLinkClick={this.onLinkClick} />
                 <ConnectedPagination offset={1} />
               </Index>
@@ -100,7 +100,7 @@ class Search extends React.Component {
                 </a>
               </h3>
               <Index indexName={sectionsIndexName}>
-                <Configure hitsPerPage={10} />
+                <Configure hitsPerPage={10} removeWordsIfNoResults="allOptional" />
                 <ConnectedSections onLinkClick={this.onLinkClick} />
               </Index>
             </div>
