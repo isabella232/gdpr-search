@@ -17,11 +17,11 @@ class SectionHits extends React.Component {
 					return (
 						<div className="section-row">
 							<p className="chapter-info">
-								{hit.chapter__label}. {hit.chapter__name}
+								<Highlight hit={hit} attribute="chapter__label" />. <Highlight hit={hit} attribute="chapter__name" />
 							</p>
 							<p className="article-info">
 								<a href={`/article-${hit.article__index}`}>
-									{hit.article__label}. <Highlight hit={hit} attribute="article__name" />
+									<Highlight hit={hit} attribute="article__label" />. <Highlight hit={hit} attribute="article__name" />
 								</a>
 							</p>
 							<div className="section-content">

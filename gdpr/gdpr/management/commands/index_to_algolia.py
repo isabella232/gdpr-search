@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.conf import settings
+from numeral.numeral import int2roman
 
 from algoliasearch import algoliasearch
 
@@ -36,6 +37,12 @@ class Command(BaseCommand):
         self.stdout.write('Indexing chapters')
         for language in LANGUAGES:
             index = client.init_index(f'dev_GDRPR_chapters_{language}')
+            index.set_settings({
+                'searchableAttributes': [
+                    'label',
+                    'unordered(name)'
+                ]
+            })
             index.add_objects(
                 {
                     'objectID': chapter['id'],
@@ -48,9 +55,26 @@ class Command(BaseCommand):
                     'name',
                 )
             )
+            for i in range(1, 20):
+                index.save_synonym({
+                    'objectID': int2roman(i, only_ascii=True),
+                    'type': 'oneWaySynonym',
+                    'input': str(i),
+                    'synonyms': [
+                        int2roman(i, only_ascii=True)
+                    ]
+                }, int2roman(i, only_ascii=True), False)
         self.stdout.write('Indexing articles')
         for language in LANGUAGES:
             index = client.init_index(f'dev_GDRPR_articles_{language}')
+            index.set_settings({
+                'searchableAttributes': [
+                    'chapter__label',
+                    'unordered(chapter__name)'
+                    'label',
+                    'unordered(name)',
+                ]
+            })
             index.add_objects(
                 {
                     'objectID': article.id,
@@ -66,9 +90,27 @@ class Command(BaseCommand):
                     'chapter'
                 ).all()
             )
+            for i in range(1, 20):
+                index.save_synonym({
+                    'objectID': int2roman(i, only_ascii=True),
+                    'type': 'oneWaySynonym',
+                    'input': str(i),
+                    'synonyms': [
+                        int2roman(i, only_ascii=True)
+                    ]
+                }, int2roman(i, only_ascii=True), False)
         self.stdout.write('Indexing sections')
         for language in LANGUAGES:
             index = client.init_index(f'dev_GDRPR_sections_{language}')
+            index.set_settings({
+                'searchableAttributes': [
+                    'chapter__label',
+                    'unordered(chapter__name)',
+                    'article__label',
+                    'unordered(article__name)',
+                    'unordered(content)',
+                ]
+            })
             index.add_objects(
                 {
                     'objectID': section.id,
@@ -88,10 +130,22 @@ class Command(BaseCommand):
                     'article__chapter',
                 ).all()
             )
+            for i in range(1, 20):
+                index.save_synonym({
+                    'objectID': int2roman(i, only_ascii=True),
+                    'type': 'oneWaySynonym',
+                    'input': str(i),
+                    'synonyms': [
+                        int2roman(i, only_ascii=True)
+                    ]
+                }, int2roman(i, only_ascii=True), False)
         self.stdout.write('Indexing recitals')
         for language in LANGUAGES:
             index = client.init_index(f'dev_GDRPR_recitals_{language}')
             index.set_settings({
+                'searchableAttributes': [
+                    'unordered(text)'
+                ],
                 'attributesToSnippet': [
                     'text:15'
                 ]

@@ -28,7 +28,7 @@ class ArticlesHits extends React.Component {
 									</a>
 								</p>
 								<p className="chapter-name">
-									Chap {hit.chapter__index}. {hit.chapter__name}
+									Chap {hit.chapter__index}. <Highlight attribute="chapter__name" hit={hit} />
 								</p>
 							</div>
 						</div>

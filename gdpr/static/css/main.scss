@@ -11,9 +11,18 @@ $popover-bg: rgba(58, 69, 112, 0.9);
 $popover-body-padding-x: 25px 25px;
 $popover-body-padding-y: 0 25px;
 $popover-header-padding-y: 25px 25px;
+$modal-backdrop-opacity: 0;
+$zindex-modal: 99;
+$zindex-modal-backdrop: -1;
+
+$modal-content-bg: rgba(58, 69, 112, 0.9);
+$modal-header-border-width: 0;
 
 @import "bootstrap/bootstrap";
 
+*:focus {
+  outline: none 0px;
+}
 
 tspan {
   font-family: $font-family-sans-serif !important;
@@ -65,7 +74,7 @@ a {
 
 .logo {
   height: 56px;
-  width: 182px;
+  width: 272px;
   margin: 24px 0 0 32px;
 }
 
@@ -361,6 +370,18 @@ a {
       margin-bottom: 16px;
       display: flex;
       flex-direction: row;
+
+      a {
+        color: inherit;
+
+        &:focus {
+          outline: none 0px;
+        }
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
 
       .index {
         display: block;
@@ -724,4 +745,14 @@ mark {
   cursor: help;
   border-radius: 4px;
   background-color: rgb(238, 240, 247);
+}
+
+.modal-content, .modal-content p {
+  color: #fff;
+  opacity: 1;
+}
+.close, .close:hover, .close:focus {
+  color: #fff;
+  opacity: 1;
+  text-shadow: none;
 }

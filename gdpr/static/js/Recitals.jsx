@@ -22,8 +22,33 @@ class RecitalsHits extends React.Component {
 							</div>
 							<div className="col-11">
 								<p className="recital-content">
-									<Snippet hit={hit} attribute="text" />
+									<a href="#" data-toggle="modal" data-target={`#recital-${hit.index}`}>
+										<Snippet hit={hit} attribute="text" />
+									</a>
 								</p>
+								<div
+									className="modal fade"
+									tabIndex="-1"
+									role="dialog"
+									aria-labelledby={`recital-${hit.index}-title`} aria-hidden="true"
+									id={`recital-${hit.index}`}
+								>
+									<div className="modal-dialog modal-lg modal-dialog-centered">
+										<div className="modal-content">
+											<div className="modal-header">
+												<h5 className="modal-title" id={`recital-${hit.index}-title`}>Recital
+													#{hit.index}
+												</h5>
+												<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div className="modal-body">
+												<p>{hit.text}</p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					)
