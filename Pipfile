@@ -21,6 +21,8 @@ django-heroku = "*"
 algoliasearch = "*"
 algoliasearch-django = "*"
 numeral = "*"
+python-binary-memcached = "*"
+django-bmemcached = "*"
 
 [dev-packages]
 
