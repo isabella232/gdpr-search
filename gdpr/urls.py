@@ -40,7 +40,7 @@ i18n_urlpatterns = i18n_patterns(
         name='index'
     ),
     url(
-        'article-:id',
+        'gdpr-article-:id',
         ArticleView.as_view(),
         name='article'
     ),
