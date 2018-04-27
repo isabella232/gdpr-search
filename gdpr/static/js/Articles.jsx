@@ -23,7 +23,7 @@ class ArticlesHits extends React.Component {
 							</div>
 							<div className="col-9">
 								<p className="article-name">
-									<a href={`/article-${hit.index}`} onClick={onLinkClick}>
+									<a href={`/gdpr-article-${hit.index}`} onClick={onLinkClick}>
 										<Highlight attribute="name" hit={hit} />
 									</a>
 								</p>

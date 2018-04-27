@@ -27,7 +27,7 @@ class SectionHits extends React.Component {
 							<div className="section-content">
 								<div className="section-index">{hit.index}.</div>
 								<div>
-									<a href={`/article-${hit.article__index}#section-${hit.index}`} onClick={onLinkClick}>
+									<a href={`/gdpr-article-${hit.article__index}#section-${hit.index}`} onClick={onLinkClick}>
 										<Highlight hit={hit} attribute="content" />
 									</a>
 								</div>
