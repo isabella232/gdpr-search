@@ -33,7 +33,7 @@ class RecitalsHits extends React.Component {
 									aria-labelledby={`recital-${hit.index}-title`} aria-hidden="true"
 									id={`recital-${hit.index}`}
 								>
-									<div className="modal-dialog modal-lg modal-dialog-centered">
+									<div className="modal-dialog modal-lg">
 										<div className="modal-content">
 											<div className="modal-header">
 												<h5 className="modal-title" id={`recital-${hit.index}-title`}>Recital

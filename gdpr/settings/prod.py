@@ -14,5 +14,6 @@ CACHES = {
         }
     }
 }
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 
 django_heroku.settings(locals())

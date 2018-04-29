@@ -100,7 +100,7 @@ class Search extends React.Component {
                 </a>
               </h3>
               <Index indexName={sectionsIndexName}>
-                <Configure hitsPerPage={10} removeWordsIfNoResults="allOptional" />
+                <Configure hitsPerPage={5} removeWordsIfNoResults="allOptional" />
                 <ConnectedSections onLinkClick={this.onLinkClick} />
               </Index>
             </div>

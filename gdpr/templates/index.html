@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% load render_bundle from webpack_loader %}
-{% load i18n %}
+{% load i18n static %}
 
 {% get_current_language as CURRENT_LANG %}
 
@@ -30,10 +30,21 @@
     <div class="row no-gutters">
         <div class="col-3">
             <div class="left-container">
+                <div class="logo__container">
+                    <a href="/">
+                        <img src="{% static 'images/logo.svg' %}" class="logo" />
+                    </a>
+                    <span class="title__container">
+                        <a href="/">
+                            <span class="title">GDPR</span>
+                        </a>
+                        <span class="subtitle">Made searcheable by <a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+                    </span>
+                </div>
                 {% include '_menu.html' %}
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 main-column-content">
             <div class="row header no-gutters">
                 <div class="col-12 search__container">
                     <div id="search"></div>
@@ -43,8 +54,7 @@
                     </script>
                     {% render_bundle 'search' %}
                 </div>
-            </div>
-            <div class="content__container main">
+                <div class="content__container main">
                 {% if article.index == 1 %}
                     <h1>General Data<br/>Protection Regulation</h1>
                     <p>
@@ -55,6 +65,7 @@
                     </p>
                 {% endif %}
                 {% include '_article.html' %}
+                </div>
             </div>
         </div>
         <div class="col-3">
@@ -74,34 +85,41 @@
                         {% for recital in article.recitals.language.all %}
                             <li>
                                 <span class="index">{{ recital.index }}</span>
-                                <a href="#" data-toggle="modal" data-target="#recital-{{ recital.index }}-sidebar">
+                                <a href="#recital-{{ recital.index }}"  class="recital-link" data-recital-content="{{ recital.text }}" data-recital-index="{{ recital.index }}">
                                     <span>{{ recital.text|truncatechars:50 }}</span>
                                 </a>
                             </li>
-                            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="recital-{{ recital.index }}-title" aria-hidden="true" id="recital-{{ recital.index }}-sidebar">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="recital-{{ recital.index }}-title">Recital #{{ recital.index }}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>{{ recital.text }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         {% endfor %}
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="single-recital-container">
-                test
-                dndcidnv ikn
+                <div class="recital-content-container">
+                    <div class="inner">
+                        <div class="close-container">
+                            <a href="#" class="recital-content-close">
+                                <span>Close</span> <span class="cross">&times;</span>
+                            </a>
+                        </div>
+                        <h2></h2>
+                        <p></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        var $recitalContentContainer = $('.recital-content-container');
+        $(document).ready(function(){
+        	$('.recital-link').click(function(){
+        		var recitalIndex = $(this).data('recital-index');
+        		var recitalContent = $(this).data('recital-content');
+                $recitalContentContainer.find('h2').text('# ' + recitalIndex);
+                $recitalContentContainer.find('p').text(recitalContent);
+                $recitalContentContainer.toggleClass('open');
+            });
+            $('.recital-content-close').click(function(){
+            	$recitalContentContainer.removeClass('open');
+            });
+        });
+    </script>
 {% endblock %}
