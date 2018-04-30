@@ -2,7 +2,6 @@ from .base import *
 
 import django_heroku
 
-COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = True
 DEBUG = False
 
