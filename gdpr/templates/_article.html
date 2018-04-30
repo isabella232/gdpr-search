@@ -38,7 +38,12 @@
                                 return $(this).text();
                               },
                               content: function() {
-                                return definitions[$(this).text().toLowerCase()];
+                                var content = definitions[$(this).text().toLowerCase()];
+                                if (content) {
+                                	return content;
+                                } else {
+                                	return definitions[$(this).text()];
+                                }
                               },
                               delay: { "show": 100, "hide": 0 },
                               trigger: 'hover'
