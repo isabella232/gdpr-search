@@ -11,6 +11,7 @@ import {
 class SectionHits extends React.Component {
 	render() {
 		const { hits, onLinkClick } = this.props;
+		const language = window.language_code;
 		return (
 			<div className="section-hits">
 				{hits.map(hit => {
@@ -20,14 +21,14 @@ class SectionHits extends React.Component {
 								<Highlight hit={hit} attribute="chapter__label" />. <Highlight hit={hit} attribute="chapter__name" />
 							</p>
 							<p className="article-info">
-								<a href={`/article-${hit.article__index}`}>
+								<a href={`${language === 'en' ? '' : '/' + language}/article-${hit.article__index}`}>
 									<Highlight hit={hit} attribute="article__label" />. <Highlight hit={hit} attribute="article__name" />
 								</a>
 							</p>
 							<div className="section-content">
 								<div className="section-index">{hit.index}.</div>
 								<div>
-									<a href={`/gdpr-article-${hit.article__index}#section-${hit.index}`} onClick={onLinkClick}>
+									<a href={`${language === 'en' ? '' : '/' + language}/gdpr-article-${hit.article__index}#section-${hit.index}`} onClick={onLinkClick}>
 										<Highlight hit={hit} attribute="content" />
 									</a>
 								</div>

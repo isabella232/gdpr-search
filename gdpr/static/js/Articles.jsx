@@ -11,6 +11,7 @@ import {
 class ArticlesHits extends React.Component {
 	render() {
 		const { hits, onLinkClick } = this.props;
+		const language = window.language_code;
 		return (
 			<div className="article-hits">
 				{hits.map(hit => {
@@ -23,7 +24,7 @@ class ArticlesHits extends React.Component {
 							</div>
 							<div className="col-9">
 								<p className="article-name">
-									<a href={`/gdpr-article-${hit.index}`} onClick={onLinkClick}>
+									<a href={`${language === 'en' ? '' : '/' + language}/gdpr-article-${hit.index}`} onClick={onLinkClick}>
 										<Highlight attribute="name" hit={hit} />
 									</a>
 								</p>
