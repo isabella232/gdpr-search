@@ -157,7 +157,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.cssmin.CSSMinFilter',
 ]
@@ -165,6 +164,7 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 COMPRESS_ENABLED = True
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 
 WEBPACK_LOADER = {
     'DEFAULT': {
