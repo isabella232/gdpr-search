@@ -531,6 +531,11 @@ a {
       background: #fff;
       color: #04143a;
 
+      img {
+        margin-right: 15px;
+        vertical-align: initial;
+      }
+
       &:focus {
         box-shadow: none;
       }
