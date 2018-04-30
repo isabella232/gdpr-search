@@ -21,7 +21,7 @@ class SectionHits extends React.Component {
 								<Highlight hit={hit} attribute="chapter__label" />. <Highlight hit={hit} attribute="chapter__name" />
 							</p>
 							<p className="article-info">
-								<a href={`${language === 'en' ? '' : '/' + language}/article-${hit.article__index}`}>
+								<a href={`${language === 'en' ? '' : '/' + language}/gdpr-article-${hit.article__index}`}>
 									<Highlight hit={hit} attribute="article__label" />. <Highlight hit={hit} attribute="article__name" />
 								</a>
 							</p>
