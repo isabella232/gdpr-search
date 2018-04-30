@@ -16,6 +16,7 @@ Including another URLconf
 
 from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls import include
 
 from macrosurl import url
 
@@ -47,4 +48,6 @@ i18n_urlpatterns = i18n_patterns(
     prefix_default_language=False
 )
 
-urlpatterns = sitemap_patterns + i18n_urlpatterns
+urlpatterns = [
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+] + sitemap_patterns + i18n_urlpatterns

@@ -31,7 +31,7 @@
         <div class="col-3">
             <div class="left-container">
                 <div class="logo__container">
-                    <a href="/">
+                    <a href="{% url 'index' %}">
                         <img src="{% static 'images/logo.svg' %}" class="logo" />
                     </a>
                     <span class="title__container">
@@ -53,6 +53,7 @@
                       window.react_mount = document.getElementById('search');
                     </script>
                     {% render_bundle 'search' %}
+                    {% include '_language_switcher.html' %}
                 </div>
                 <div class="content__container main">
                 {% if article.index == 1 %}
