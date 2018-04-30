@@ -2,7 +2,9 @@ from .base import *
 
 import django_heroku
 
-DEBUG = True
+COMPRESS_ENABLED = False
+COMPRESS_OFFLINE = True
+DEBUG = False
 
 CACHES = {
     'default': {
@@ -15,5 +17,6 @@ CACHES = {
     }
 }
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())

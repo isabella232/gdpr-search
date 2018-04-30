@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"search":[{"name":"search-9490dcfcad63e798fded.js","path":"/Users/clement/Projects/gdpr/gdpr/static/bundles/search-9490dcfcad63e798fded.js"}]}}
+{"status":"done","chunks":{"search":[{"name":"search-c6df79dcf967a5959f59.js","path":"/Users/clement/Projects/gdpr/gdpr/static/bundles/search-c6df79dcf967a5959f59.js"}]},"error":"ModuleBuildError","message":"Module build failed: Error: ENOENT: no such file or directory, open '/Users/clement/Projects/gdpr/gdpr/static/js/search.jsx'"}
