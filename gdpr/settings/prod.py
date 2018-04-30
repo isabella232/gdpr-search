@@ -2,7 +2,7 @@ from .base import *
 
 import django_heroku
 
-DEBUG = False
+DEBUG = True
 
 CACHES = {
     'default': {
