@@ -20,6 +20,10 @@ $modal-header-border-width: 0;
 
 @import "bootstrap/bootstrap";
 
+body {
+  overflow-x: hidden;
+}
+
 *:focus {
   outline: none 0px;
 }
