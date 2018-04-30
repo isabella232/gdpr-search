@@ -8,7 +8,7 @@
     <link rel="canonical" href="{{ request.build_absolute_uri }}" />
     <meta property="og:locale" content="{{ CURRENT_LANG }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ article.label }}. {{ article.name }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
+    <meta property="og:title" content="{{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
     <meta property="og:description" content="Official text of the GDPR – General Data Protection Regulation – made searchable by Algolia. Easily search in chapters, articles and recitals to read faster and become GDPR compliant." />
     <meta property='og:image' content='https://gdpr.algolia.com/static/images/GDPR-social-network-preview.jpg'>
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name='twitter:image:src' content='https://gdpr.algolia.com/static/images/GDPR-social-network-preview.jpg'>
     <meta name="twitter:description" content="Official text of the GDPR – General Data Protection Regulation – made searchable by Algolia. Easily search in chapters, articles and recitals to read faster and become GDPR compliant." />
-    <meta name="twitter:title" content="{{ article.label }} {{ article.name }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
+    <meta name="twitter:title" content="{{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
     {% for language_code in article.get_available_languages_code %}
         {% language language_code %}
         <link rel="alternate" hreflang="{{ language_code }}" href="{{ request.scheme }}://{{ request.get_host }}{% url 'article' id=article.index %}">
@@ -26,7 +26,7 @@
 {% endblock %}
 
 {% block title %}
-    {{ article.label }}. {{ article.name }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable
+    {{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable
 {% endblock %}
 
 {% block body %}
