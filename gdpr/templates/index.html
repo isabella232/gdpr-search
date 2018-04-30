@@ -10,9 +10,12 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ article.label }} {{ article.name }} | General Data Protection Regulation (GDPR)" />
     <meta property="og:description" content="{{ article.sections_list.0.content }}" />
+    <meta property='og:image' content='https://gdpr.algolia.com/static/images/GDPR-social-network-preview.jpg'>
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:site_name" content="General Data Protection Regulation (GDPR)" />
+
     <meta name="twitter:card" content="summary" />
+    <meta name='twitter:image:src' content='https://gdpr.algolia.com/static/images/GDPR-social-network-preview.jpg'>
     <meta name="twitter:description" content="{{ article.sections_list.0.content }}" />
     <meta name="twitter:title" content="{{ article.label }} {{ article.name }} | General Data Protection Regulation (GDPR)" />
     {% for language_code in article.get_available_languages_code %}
