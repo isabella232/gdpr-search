@@ -3,7 +3,7 @@
     <p class="mainMenu__title">Table of content</p>
     <ul>
       {% for chapter in chapters %}
-        <li class="mainMenu__chapter">
+        <li class="mainMenu__chapter {% if chapter.index != 1 and article.chapter.index == chapter.index %}open{% endif %}">
             <a class="mainMenu__chapter_link">
                 <span class="mainMenu__chapter__index">{{ chapter.label }}</span>
                 <span class="mainMenu__chapter__title">
@@ -34,6 +34,10 @@
     		$(this).find('i').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
             $(this).next().slideToggle('fast');
         });
+    	if ($('.mainMenu__chapter.open').length) {
+    	    var offset = $('.mainMenu__chapter.open').offset()['top'];
+    	    $('.mainMenu').scrollTop(offset - 129);
+    	}
     });
 </script>
 {% endcompress %}
