@@ -10,12 +10,12 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
     <meta property="og:description" content="Official text of the GDPR – General Data Protection Regulation – made searchable by Algolia. Easily search in chapters, articles and recitals to read faster and become GDPR compliant." />
-    <meta property='og:image' content='https://gdpr.algolia.com/static/images/GDPR-social-network-preview.jpg'>
+    <meta property='og:image' content='https://gdpr.algolia.com/static/img/GDPR-social-network-preview.jpg'>
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:site_name" content="General Data Protection Regulation (GDPR)" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name='twitter:image:src' content='https://gdpr.algolia.com/static/images/GDPR-social-network-preview.jpg'>
+    <meta name='twitter:image:src' content='https://gdpr.algolia.com/static/img/GDPR-social-network-preview.jpg'>
     <meta name="twitter:description" content="Official text of the GDPR – General Data Protection Regulation – made searchable by Algolia. Easily search in chapters, articles and recitals to read faster and become GDPR compliant." />
     <meta name="twitter:title" content="{{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
     {% for language_code in article.get_available_languages_code %}
@@ -35,7 +35,7 @@
             <div class="left-container">
                 <div class="logo__container">
                     <a href="{% url 'index' %}">
-                        <img src="{% static 'images/logo.svg' %}" class="logo" />
+                        <img src="{% static 'img/logo.svg' %}" class="logo" />
                     </a>
                     <h1 class="title__container">
                         <a href="/">

@@ -157,13 +157,16 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.cssmin.CSSMinFilter',
 ]
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
-COMPRESS_ENABLED = True
 
 WEBPACK_LOADER = {
     'DEFAULT': {
@@ -175,4 +178,21 @@ WEBPACK_LOADER = {
 ALGOLIA = {
     'APPLICATION_ID': 'OA3O0E2RHO',
     'API_KEY': 'a1a60406a68a345b246d23ddfc09db5a'
+}
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR'),
+        },
+    },
 }

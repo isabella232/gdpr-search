@@ -96,7 +96,7 @@ class Search extends React.Component {
               <h3>
                 <span>Regulations</span>
 								<a href="https://algolia.com" className="search-by-algolia" target="_blank">
-									<img src="/static/images/search-by-algolia@2x.png" alt="Search by Algolia" />
+									<img src="/static/img/search-by-algolia@2x.png" alt="Search by Algolia" />
                 </a>
               </h3>
               <Index indexName={sectionsIndexName}>

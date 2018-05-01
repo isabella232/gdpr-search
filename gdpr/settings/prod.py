@@ -2,7 +2,7 @@ from .base import *
 
 import django_heroku
 
-DEBUG = True
+DEBUG = False
 
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 COMPRESS_OFFLINE = True
@@ -19,4 +19,4 @@ if os.environ.get('MEMCACHEDCLOUD_SERVERS'):
         }
     }
 
-    django_heroku.settings(locals())
+    django_heroku.settings(locals(), logging=False)

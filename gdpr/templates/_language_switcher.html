@@ -5,8 +5,8 @@
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {% for language in LANGUAGES %}
             {% if LANGUAGE_CODE == language.0 %}
-                <img src="/static/images/{{ language.0 }}.png"
-                     srcset="/static/images/{{ language.0 }}@2x.png 2x, /static/images/{{ language.0 }}@3x.png 3x"
+                <img src="/static/img/{{ language.0 }}.png"
+                     srcset="/static/img/{{ language.0 }}@2x.png 2x, /static/img/{{ language.0 }}@3x.png 3x"
                      alt=""
                 />
             {% endif %}
@@ -16,8 +16,8 @@
         {% for language in LANGUAGES %}
             {% if LANGUAGE_CODE == language.0 %}
                 <a class="dropdown-item active" data-value="{{ language.0 }}" href="#">
-                    <img src="/static/images/{{ language.0 }}.png"
-                         srcset="/static/images/{{ language.0 }}@2x.png 2x, /static/images/{{ language.0 }}@3x.png 3x"
+                    <img src="/static/img/{{ language.0 }}.png"
+                         srcset="/static/img/{{ language.0 }}@2x.png 2x, /static/img/{{ language.0 }}@3x.png 3x"
                          alt=""
                     /> {{ language.1 }}
                 </a>
@@ -26,8 +26,8 @@
         {% for language in LANGUAGES %}
             {% if LANGUAGE_CODE != language.0 %}
                 <a class="dropdown-item" data-value="{{ language.0 }}" href="#">
-                    <img src="/static/images/{{ language.0 }}.png"
-                         srcset="/static/images/{{ language.0 }}@2x.png 2x, /static/images/{{ language.0 }}@3x.png 3x"
+                    <img src="/static/img/{{ language.0 }}.png"
+                         srcset="/static/img/{{ language.0 }}@2x.png 2x, /static/img/{{ language.0 }}@3x.png 3x"
                          alt=""
                     /> {{ language.1 }}
                 </a>
