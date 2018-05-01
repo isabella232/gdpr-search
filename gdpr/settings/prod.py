@@ -2,7 +2,7 @@ from .base import *
 
 import django_heroku
 
-DEBUG = False
+DEBUG = True
 
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 COMPRESS_OFFLINE = True
