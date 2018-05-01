@@ -9,7 +9,8 @@ import {
 
 class ChapterHits extends React.Component {
 	render() {
-		const { hits } = this.props;
+		const { hits, onLinkClick } = this.props;
+		const language = window.language_code;
 		return (
 			<div className="chapter-hits">
 				{hits.map(hit => {
@@ -17,12 +18,16 @@ class ChapterHits extends React.Component {
 						<div className="row chapter-row">
 							<div className="col-3">
 								<span className="chapter-index">
-									Chap {hit.index}
+									<a href={`${language === 'en' ? '' : '/' + language}/gdpr-article-${hit.first_article_id}`} onClick={onLinkClick}>
+										Chap {hit.index}
+									</a>
 								</span>
 							</div>
 							<div className="col-9">
 								<span className="chapter-name">
-									<Highlight attribute="name" hit={hit} />
+									<a href={`${language === 'en' ? '' : '/' + language}/gdpr-article-${hit.first_article_id}`} onClick={onLinkClick}>
+										<Highlight attribute="name" hit={hit} />
+									</a>
 								</span>
 							</div>
 						</div>

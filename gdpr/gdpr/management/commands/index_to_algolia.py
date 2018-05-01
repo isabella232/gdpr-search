@@ -45,15 +45,14 @@ class Command(BaseCommand):
             })
             index.add_objects(
                 {
-                    'objectID': chapter['id'],
-                    **chapter
+                    'objectID': chapter.id,
+                    'id': chapter.id,
+                    'index': chapter.index,
+                    'label': chapter.label,
+                    'name': chapter.name,
+                    'first_article_id': chapter.articles.language(language).first().index
                 }
-                for chapter in Chapter.objects.language(language).values(
-                    'id',
-                    'index',
-                    'label',
-                    'name',
-                )
+                for chapter in Chapter.objects.language(language).all()
             )
             for i in range(1, 20):
                 index.save_synonym({
