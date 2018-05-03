@@ -67,15 +67,15 @@ class Search extends Component {
             placeholder: "Search in chapters, articles, recitals, …"
           }}
         />
-        <div className="search-results">
+        <div className="search-results col-12">
           <div className="row search-top">
-            <div className="col-4">
+            <div className="col-xs-12 col-md-6 col-lg-4">
               <h3>
                 <span>Chapters</span>
               </h3>
               <ConnectedChapters onLinkClick={this.onLinkClick} />
             </div>
-            <div className="col-4">
+            <div className="col-xs-12 col-md-6 col-lg-4">
               <h3>
                 <span>Articles</span>
               </h3>
@@ -88,7 +88,7 @@ class Search extends Component {
                 <ConnectedPagination offset={3} />
               </Index>
             </div>
-            <div className="col-4">
+            <div className="col-xs-12 col-lg-4">
               <h3>
                 <span>Recitals</span>
               </h3>
