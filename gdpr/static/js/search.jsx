@@ -56,7 +56,7 @@ class Search extends React.Component {
     return (
       <InstantSearch
         appId="OA3O0E2RHO"
-        apiKey="9c1dd06a40440adc4e7a50d485bd46d5"
+        apiKey="9e85dda151c22fc5b9a830f9d9274a30"
         indexName={chapterIndexName}
       >
         <Configure hitsPerPage={5} removeWordsIfNoResults="allOptional" />
