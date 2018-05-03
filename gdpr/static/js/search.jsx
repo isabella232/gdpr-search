@@ -1,48 +1,47 @@
-import * as React from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
 import {
   InstantSearch,
   SearchBox,
   Index,
   Configure
-} from 'react-instantsearch/dom';
-import key from 'keyboard-shortcut';
+} from "react-instantsearch/dom";
+import key from "keyboard-shortcut";
 
-import ConnectedChapters from './Chapters';
-import ConnectedArticles from './Articles';
-import ConnectedRecitals from './Recitals';
-import ConnectedSections from './Sections';
-import ConnectedPagination from './Pagination';
+import ConnectedChapters from "./Chapters";
+import ConnectedArticles from "./Articles";
+import ConnectedRecitals from "./Recitals";
+import ConnectedSections from "./Sections";
+import ConnectedPagination from "./Pagination";
 
-class Search extends React.Component {
-
-  constructor(props){
+class Search extends Component {
+  constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillMount(){
-    key('escape', this.onEscape)
+  componentWillMount() {
+    key("escape", this.onEscape);
   }
 
   onEscape() {
-    document.body.classList.toggle('searching', false)
+    document.body.classList.toggle("searching", false);
   }
 
   handleChange(event) {
     if (event.target.value.length > 0) {
-      document.body.classList.toggle('searching', true)
+      document.body.classList.toggle("searching", true);
     } else {
-      document.body.classList.toggle('searching', false)
+      document.body.classList.toggle("searching", false);
     }
   }
 
-  onLinkClick(event){
+  onLinkClick(event) {
     const targetLink = new URL(event.currentTarget.href);
     if (targetLink.pathname === window.location.pathname) {
       event.preventDefault();
-      document.body.classList.toggle('searching', false)
+      document.body.classList.toggle("searching", false);
     }
   }
 
@@ -65,27 +64,39 @@ class Search extends React.Component {
           onReset={this.onEscape.bind(this)}
           onFocus={this.handleChange.bind(this)}
           translations={{
-            'placeholder': 'Search in chapters, articles, recitals, …'
+            placeholder: "Search in chapters, articles, recitals, …"
           }}
         />
         <div className="search-results">
           <div className="row search-top">
             <div className="col-4">
-              <h3><span>Chapters</span></h3>
-              <ConnectedChapters onLinkClick={this.onLinkClick}/>
+              <h3>
+                <span>Chapters</span>
+              </h3>
+              <ConnectedChapters onLinkClick={this.onLinkClick} />
             </div>
             <div className="col-4">
-              <h3><span>Articles</span></h3>
+              <h3>
+                <span>Articles</span>
+              </h3>
               <Index indexName={articlesIndexName}>
-                <Configure hitsPerPage={5} removeWordsIfNoResults="allOptional" />
+                <Configure
+                  hitsPerPage={5}
+                  removeWordsIfNoResults="allOptional"
+                />
                 <ConnectedArticles onLinkClick={this.onLinkClick} />
                 <ConnectedPagination offset={3} />
               </Index>
             </div>
             <div className="col-4">
-              <h3><span>Recitals</span></h3>
+              <h3>
+                <span>Recitals</span>
+              </h3>
               <Index indexName={recitalsIndexName}>
-                <Configure hitsPerPage={10} removeWordsIfNoResults="allOptional" />
+                <Configure
+                  hitsPerPage={10}
+                  removeWordsIfNoResults="allOptional"
+                />
                 <ConnectedRecitals onLinkClick={this.onLinkClick} />
                 <ConnectedPagination offset={1} />
               </Index>
@@ -97,22 +108,23 @@ class Search extends React.Component {
                 <span>Regulations</span>
               </h3>
               <Index indexName={sectionsIndexName}>
-                <Configure hitsPerPage={5} removeWordsIfNoResults="allOptional" />
+                <Configure
+                  hitsPerPage={5}
+                  removeWordsIfNoResults="allOptional"
+                />
                 <ConnectedSections onLinkClick={this.onLinkClick} />
               </Index>
             </div>
           </div>
         </div>
-				<a onClick={this.onEscape.bind(this)} className="search-escape">
-          <i className="fa fa-times" /><br/>esc
+        <a onClick={this.onEscape.bind(this)} className="search-escape">
+          <i className="fa fa-times" />
+          <br />esc
         </a>
       </InstantSearch>
-    )
+    );
   }
 }
 
 const element = <Search name="test" />;
-ReactDOM.render(
-  element,
-  document.getElementById('search')
-);
+ReactDOM.render(element, document.getElementById("search"));
