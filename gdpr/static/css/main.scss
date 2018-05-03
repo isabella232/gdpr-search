@@ -510,6 +510,28 @@ h1.title__container {
   align-items: center;
   justify-items: center;
 
+  .algolia-logo-search {
+    position: absolute;
+    opacity: 0;
+    left: 40px;
+    height: 53px;
+    transition: all 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    a {
+      display: inline-block;
+      text-align: center;
+    }
+
+    svg {
+      height: 35px;
+    }
+
+    span {
+      display: block;
+      font-size: 11px;
+    }
+  }
+
   #search {
     flex-grow: 1;
   }
@@ -640,7 +662,7 @@ h1.title__container {
   }
 }
 
-.left-container, .content__container, .right-container, .search-results, .search-escape {
+.left-container, .content__container, .right-container, .search-results, .search-escape, algolia-logo-search {
   transition: all 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
   will-change: transform, opacity, translate3d, box-shadow;
 }
@@ -667,6 +689,10 @@ h1.title__container {
   }
   .search-results, a.search-escape {
     display: block;
+    opacity: 1;
+  }
+  .algolia-logo-search {
+    left: -25px;
     opacity: 1;
   }
 
