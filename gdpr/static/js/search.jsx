@@ -95,7 +95,7 @@ class Search extends React.Component {
             <div className="col-12">
               <h3>
                 <span>Regulations</span>
-								<a href="https://algolia.com" className="search-by-algolia" target="_blank">
+								<a href="https://algolia.com/?utm_medium=social-owned&utm_source=gdpr_search&utm_campaign=gdpr_search" className="search-by-algolia" target="_blank">
 									<img src="/static/img/search-by-algolia@2x.png" alt="Search by Algolia" />
                 </a>
               </h3>
