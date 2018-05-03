@@ -178,8 +178,8 @@ WEBPACK_LOADER = {
 }
 
 ALGOLIA = {
-    'APPLICATION_ID': 'OA3O0E2RHO',
-    'API_KEY': 'a1a60406a68a345b246d23ddfc09db5a'
+    'APPLICATION_ID': os.environ.get('ALGOLIA_APPLICATION_ID'),
+    'API_KEY':  os.environ.get('ALGOLIA_API_KEY')
 }
 
 
