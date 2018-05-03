@@ -7,8 +7,7 @@
             <a class="mainMenu__chapter_link">
                 <span class="mainMenu__chapter__index">{{ chapter.label }}</span>
                 <span class="mainMenu__chapter__title">
-                    {{ chapter.name }}
-                    <i class="fa {% if article.chapter.index == chapter.index %}fa-chevron-down{% else %}fa-chevron-up{% endif %}"></i>
+                    {{ chapter.name }}&nbsp;&nbsp;<i class="fa {% if article.chapter.index == chapter.index %}fa-chevron-down{% else %}fa-chevron-up{% endif %}"></i>
                 </span>
                 <span class="mainMenu__chapter__articles">
                     Art {{ chapter.articles.first.index }} - {{ chapter.articles.last.index }}
