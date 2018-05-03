@@ -26,7 +26,7 @@
 {% endblock %}
 
 {% block title %}
-    {{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable
+    {{ article.label }}. {{ article.name }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable
 {% endblock %}
 
 {% block body %}
@@ -75,7 +75,7 @@
                 </div>
                 <div class="recitals">
                     <div class="recitals__container">
-                        <h3><i class="fa fa-link"></i>Suitable Recitals for article {{ article.index }}</h3>
+                        <h3><i class="fa fa-link"></i>Suitable Recitals for Article {{ article.index }}</h3>
                         <ul class="list-unstyled">
                         {% for recital in article.recitals.language.all %}
                             <li>
