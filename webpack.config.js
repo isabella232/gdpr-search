@@ -6,7 +6,7 @@ module.exports = {
   context: __dirname,
 
   entry: {
-    search: "./gdpr/static/js/search"
+    search: "./gdpr/static/js/Search"
   },
 
   output: {
