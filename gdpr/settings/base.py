@@ -124,7 +124,7 @@ LANGUAGES = [
     ('en', 'English'),
     ('de', 'Deutsch'),
     ('fr', 'Français'),
-    ('hr', 'Hrvatski jezik'),
+    ('hr', 'Hrvatski'),
     ('it', 'Italiano'),
     ('ro', 'Română'),
     ('et', 'Eesti'),
