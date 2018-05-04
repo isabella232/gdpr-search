@@ -89,6 +89,7 @@ class Search extends Component {
               </Index>
             </div>
             <div className="col-xs-12 col-lg-4">
+              <div style={{ marginTop: 70 }} className="d-lg-none"/>
               <h3>
                 <span>Recitals</span>
               </h3>
