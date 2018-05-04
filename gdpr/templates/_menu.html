@@ -26,17 +26,3 @@
       {% endfor %}
     </ul>
 </div>
-{% compress js inline %}
-<script type="text/javascript">
-    $(document).ready(function(){
-    	$('.mainMenu__chapter_link').click(function(){
-    		$(this).find('i').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-            $(this).next().slideToggle('fast');
-        });
-    	if ($('.mainMenu__chapter.open').length) {
-    	    var offset = $('.mainMenu__chapter.open').offset()['top'];
-    	    $('.mainMenu').scrollTop(offset - 129);
-    	}
-    });
-</script>
-{% endcompress %}
