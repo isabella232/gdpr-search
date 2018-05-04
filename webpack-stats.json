@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"status":"done","chunks":{"search":[{"name":"search-321d29ff3edb9dc801a9.js","path":"/Users/clement/Projects/gdpr/gdpr/static/bundles/search-321d29ff3edb9dc801a9.js"}]}}
-=======
 {"status":"done","chunks":{"search":[{"name":"search-bb6a47426d57c56a201e.js","path":"/Users/clement/Projects/gdpr/gdpr/static/bundles/search-bb6a47426d57c56a201e.js"}]}}
->>>>>>> 3acd2f6... fix(hide the algolia logo)
