@@ -117,7 +117,7 @@ class Search extends Component {
             </div>
           </div>
         </div>
-        <a onClick={this.onEscape.bind(this)} className="search-escape">
+        <a onClick={this.onEscape.bind(this)} className="search-escape d-none d-lg-block">
           <i className="fa fa-times" />
           <br />esc
         </a>
