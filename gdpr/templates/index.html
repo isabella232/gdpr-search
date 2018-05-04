@@ -1,6 +1,7 @@
 {% extends 'layout.html' %} {% load render_bundle from webpack_loader %} {% load i18n static %} {% get_current_language as
 CURRENT_LANG %} {% block head %}
 <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<meta name="theme-color" content="#2050e0">
 <meta property="og:locale" content="{{ CURRENT_LANG }}" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable"
