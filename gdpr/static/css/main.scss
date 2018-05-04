@@ -1072,11 +1072,9 @@ mark {
     margin-right: 16px !important;
   }
   .content__container {
-    padding: 0 16px !important;
-  }
-
-  .content__container {
     padding: 0 16px 93px 16px !important;
+    overflow-y: initial;
+    
   }
   .search-results {
     margin: 12px auto 0 -69px !important;
