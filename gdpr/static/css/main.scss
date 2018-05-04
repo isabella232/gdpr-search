@@ -88,25 +88,11 @@ a {
 }
 
 .menu-container {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  &:after {
-    content: "";
-    background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 1) 100%
-    );
-    position: fixed;
-    height: 153px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 101;
-  }
 
   #mobile-menu {
     $size: 56px;
@@ -288,7 +274,7 @@ h1.title__container {
     background: #ffff;
     z-index: -1;
     opacity: 0;
-    margin-bottom: 153px;
+    margin-bottom: 73px;
     display: none;
 
     &.open {
@@ -380,7 +366,6 @@ h1.title__container {
 .next-article {
   display: block;
   text-align: center;
-  margin-bottom: 50px;
   color: black;
 
   p {
