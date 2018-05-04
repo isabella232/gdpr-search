@@ -187,6 +187,7 @@ h1.title__container {
   height: calc(100vh - 106px);
   overflow-y: scroll;
   padding-left: 32px;
+  padding-right: 32px;
 
   .mainMenu__title {
     opacity: 0.5;
@@ -1062,6 +1063,27 @@ mark {
 }
 
 @media screen and (max-width: 991.98px) {
+  body.searching {
+    .logo__container {
+      position: initial !important;
+    }
+    .search__container {
+      position: initial !important;
+      top: 70px;
+    }
+  }
+  .logo__container {
+    position: fixed;
+  }
+  .search__container {
+    position: fixed;
+    top: 70px;
+  }
+  .spacer {
+    height: 70px;
+    margin-top: 16px;
+  }
+
   .algolia-logo-search {
     display: none;
   }
