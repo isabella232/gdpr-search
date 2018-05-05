@@ -32,9 +32,9 @@ class Command(BaseCommand):
                     'index': chapter.index,
                     'label': chapter.label,
                     'name': chapter.name,
-                    'first_article_id': chapter.articles.language(language).first().index
+                    'first_article_id': chapter.articles.language(language_code).first().index
                 }
-                for chapter in Chapter.objects.language(language).all()
+                for chapter in Chapter.objects.language(language_code).all()
             )
             for i in range(1, 20):
                 index.save_synonym({
@@ -67,7 +67,7 @@ class Command(BaseCommand):
                     'chapter__label': article.chapter.label,
                     'chapter__name': article.chapter.name,
                 }
-                for article in Article.objects.language(language).select_related(
+                for article in Article.objects.language(language_code).select_related(
                     'chapter'
                 ).all()
             )
@@ -107,7 +107,7 @@ class Command(BaseCommand):
                     'chapter__label': section.article.chapter.label,
                     'chapter__name': section.article.chapter.name,
                 }
-                for section in Section.objects.language(language).select_related(
+                for section in Section.objects.language(language_code).select_related(
                     'article',
                     'article__chapter',
                 ).all()
@@ -137,7 +137,7 @@ class Command(BaseCommand):
                     'objectID': recital['id'],
                     **recital
                 }
-                for recital in Recital.objects.language(language).values(
+                for recital in Recital.objects.language(language_code).values(
                     'id',
                     'index',
                     'text'
