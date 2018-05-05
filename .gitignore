@@ -93,3 +93,4 @@ node_modules
 
 gdpr/static/bundles
 gdpr/static/CACHE/*/*
+gdpr/staticfiles
