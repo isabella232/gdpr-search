@@ -83,13 +83,6 @@ class GdprinfoSpider(scrapy.Spider):
                 }
             )
 
-    def parse_definitions(self, response):
-        current_language = response.meta.get('language')
-
-        definitions_selector = response.xpath(
-
-        )
-
     def parse_recitals(self, response):
         current_language = response.meta.get('language')
 

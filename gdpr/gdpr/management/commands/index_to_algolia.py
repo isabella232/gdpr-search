@@ -10,33 +10,15 @@ client = algoliasearch.Client(
     settings.ALGOLIA['APPLICATION_ID'],
     settings.ALGOLIA['API_KEY']
 )
-LANGUAGES = [
-    'en',
-    'hr',
-    'it',
-    'ro',
-    'et',
-    'cs',
-    'el',
-    'pl',
-    'sk',
-    'ga',
-    'fi',
-    'sl',
-    'pt',
-    'sv',
-    'de',
-    'fr',
-    'mt'
-]
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.stdout.write('Indexing chapters')
-        for language in LANGUAGES:
-            index = client.init_index(f'dev_GDRPR_chapters_{language}')
+        for language in settings.LANGUAGES:
+            language_code = language[0]
+            index = client.init_index(f'dev_GDRPR_chapters_{language_code}')
             index.set_settings({
                 'searchableAttributes': [
                     'label',
@@ -63,9 +45,9 @@ class Command(BaseCommand):
                         int2roman(i, only_ascii=True)
                     ]
                 }, int2roman(i, only_ascii=True), False)
-        self.stdout.write('Indexing articles')
-        for language in LANGUAGES:
-            index = client.init_index(f'dev_GDRPR_articles_{language}')
+
+            self.stdout.write('Indexing articles')
+            index = client.init_index(f'dev_GDRPR_articles_{language_code}')
             index.set_settings({
                 'searchableAttributes': [
                     'chapter__label',
@@ -98,9 +80,10 @@ class Command(BaseCommand):
                         int2roman(i, only_ascii=True)
                     ]
                 }, int2roman(i, only_ascii=True), False)
-        self.stdout.write('Indexing sections')
-        for language in LANGUAGES:
-            index = client.init_index(f'dev_GDRPR_sections_{language}')
+
+            self.stdout.write('Indexing sections')
+
+            index = client.init_index(f'dev_GDRPR_sections_{language_code}')
             index.set_settings({
                 'searchableAttributes': [
                     'chapter__label',
@@ -138,9 +121,9 @@ class Command(BaseCommand):
                         int2roman(i, only_ascii=True)
                     ]
                 }, int2roman(i, only_ascii=True), False)
-        self.stdout.write('Indexing recitals')
-        for language in LANGUAGES:
-            index = client.init_index(f'dev_GDRPR_recitals_{language}')
+
+            self.stdout.write('Indexing recitals')
+            index = client.init_index(f'dev_GDRPR_recitals_{language_code}')
             index.set_settings({
                 'searchableAttributes': [
                     'unordered(text)'

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'compressor',
     'webpack_loader',
 
-    'gdpr'
+    'gdpr.gdpr'
 ]
 
 MIDDLEWARE = [
@@ -124,22 +124,29 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', 'English'),
-    ('de', 'Deutsch'),
-    ('fr', 'Français'),
-    ('hr', 'Hrvatski'),
-    ('it', 'Italiano'),
-    ('ro', 'Română'),
-    ('et', 'Eesti'),
-    ('cs', 'čeština'),
-    ('el', 'ελληνικά'),
-    ('pl', 'Język polski'),
-    ('sk', 'Slovenčina'),
-    ('ga', 'Gaeilge'),
-    ('fi', 'suomi'),
-    ('sl', 'Slovenščina'),
-    ('pt', 'Português'),
-    ('sv', 'Svenska'),
-    ('mt', 'Malti'),
+    ('de', 'German'),
+    ('fr', 'French'),
+    ('es', 'Spanish'),
+    ('it', 'Italian'),
+    ('pt', 'Portuguese'),
+    ('nl', 'Dutch'),
+    ('hr', 'Croatian'),
+    ('hu', 'Hungarian'),
+    ('ro', 'Romanian'),
+    ('et', 'Estonian'),
+    ('cs', 'Czech'),
+    ('el', 'Greek'),
+    ('pl', 'Polish'),
+    ('sk', 'Slovak'),
+    ('ga', 'Irish'),
+    ('fi', 'Finnish'),
+    ('sl', 'Slovenian'),
+    ('sv', 'Swedish'),
+    ('mt', 'Maltese'),
+    ('da', 'Danish'),
+    ('bg', 'Bulgarian'),
+    ('lv', 'Latvian'),
+    ('lt', 'Lithuanian')
 ]
 
 TIME_ZONE = 'UTC'
