@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+from .utils import get_env_variable
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -88,11 +90,11 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gdpr',
-        'USER': 'clement',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': get_env_variable('GDPR_DATABASE_NAME', default='gdpr'),
+        'USER': get_env_variable('GDPR_DATABSE_USERNAME'),
+        'PASSWORD': get_env_variable('GDPR_DATABSE_PASSWORD', default=''),
+        'HOST': get_env_variable('GDPR_DATABSE_PASSWORD', default='localhost'),
+        'PORT': get_env_variable('GDPR_DATABSE_PORT', default=''),
     }
 }
 
@@ -178,8 +180,8 @@ WEBPACK_LOADER = {
 }
 
 ALGOLIA = {
-    'APPLICATION_ID': os.environ.get('ALGOLIA_APPLICATION_ID'),
-    'API_KEY':  os.environ.get('ALGOLIA_API_KEY')
+    'APPLICATION_ID': get_env_variable('GDPR_ALGOLIA_APPLICATION_ID', default=None),
+    'API_KEY':  get_env_variable('GDPR_ALGOLIA_API_KEY', default=None)
 }
 
 
