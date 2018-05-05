@@ -91,7 +91,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': get_env_variable('GDPR_DATABASE_NAME', default='gdpr'),
-        'USER': get_env_variable('GDPR_DATABSE_USERNAME'),
+        'USER': get_env_variable('GDPR_DATABSE_USERNAME', default=''),
         'PASSWORD': get_env_variable('GDPR_DATABSE_PASSWORD', default=''),
         'HOST': get_env_variable('GDPR_DATABSE_PASSWORD', default='localhost'),
         'PORT': get_env_variable('GDPR_DATABSE_PORT', default=''),
