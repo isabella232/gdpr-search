@@ -15,7 +15,8 @@ if os.environ.get('MEMCACHEDCLOUD_SERVERS'):
             'OPTIONS': {
                 'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
                 'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
-            }
+            },
+            'TIMEOUT': None
         }
     }
 
