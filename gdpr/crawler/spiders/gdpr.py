@@ -5,7 +5,30 @@ from scrapy.loader.processors import TakeFirst, Compose
 
 
 LANGUAGES = [
+    'BG',
+    'ES',
+    'CS',
+    'DA',
+    'DE',
+    'ET',
+    'EL',
+    'EN',
+    'FR',
+    'GA',
+    'HR',
+    'IT',
+    'LV',
+    'LT',
     'HU',
+    'MT',
+    'NL',
+    'PL',
+    'PT',
+    'RO',
+    'SK',
+    'SL',
+    'FI',
+    'SV',
 ]
 
 
