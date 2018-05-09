@@ -420,6 +420,7 @@ h1.title__container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
     .link-icon {
       display: flex;
@@ -435,6 +436,27 @@ h1.title__container {
         padding: 11px;
         color: rgb(161, 167, 181);
         font-size: 14px;
+      }
+    }
+
+    .share-link {
+      text-align: center;
+      img {
+        display: inline-block;
+        margin-bottom: 7px;
+      }
+
+      span {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.08;
+        letter-spacing: normal;
+        text-align: left;
+        color: #04143a;
+        opacity: 0.5;
       }
     }
 
@@ -535,28 +557,29 @@ h1.title__container {
     padding: 25px 30px;
   }
 
-  .close-container {
-    overflow: hidden;
-    margin-bottom: 30px;
-  }
-
-  .recital-content-close {
-    float: right;
-    color: #04143a;
-    opacity: 0.8;
-    display: flex;
-    align-items: center;
+  .recital-close {
+    background-color: #eef0f7;
+    padding: 13px 0;
     font-size: 14px;
+    line-height: 1.57;
+    color: #04143a;
+    text-align: center;
+    cursor: pointer;
 
-    &:hover {
-      opacity: 1;
+    span {
+      opacity: 0.7;
     }
 
     span.cross {
-      margin-left: 5px;
-      font-size: 32px;
-      font-weight: 300;
-      padding-bottom: 2px;
+      opacity: 1;
+      color: #848faf;
+      margin-right: 15px;
+    }
+
+    &:hover {
+      span {
+        opacity: 1;
+      }
     }
   }
 

@@ -9,16 +9,16 @@
 
     <meta property="og:locale" content="{{ CURRENT_LANG }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable"/>
-    <meta property="og:description" content="Official text of the GDPR – General Data Protection Regulation – made searchable by Algolia. Easily search in chapters, articles and recitals to read faster and become GDPR compliant."/>
+    <meta property="og:title" content="{% if article.index != 1 %}{{ article.label }} | {% endif %}GDPR made searchable by Algolia. Chapters, articles and recitals easily readable"/>
+    <meta property="og:description" content="Official text of GDPR–General Data Protection Regulation–made searchable by Algolia. Search Easily in chapters, articles and recitals to read faster and become GDPR compliant."/>
     <meta property='og:image' content='https://gdpr.algolia.com/static/img/GDPR-social-network-preview.jpg'>
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:site_name" content="General Data Protection Regulation (GDPR)" />
 
     <meta name="twitter:card" content="summary" />
     <meta name='twitter:image:src' content='https://gdpr.algolia.com/static/img/GDPR-social-network-preview.jpg'>
-    <meta name="twitter:description" content="Official text of the GDPR – General Data Protection Regulation – made searchable by Algolia. Easily search in chapters, articles and recitals to read faster and become GDPR compliant."/>
-    <meta name="twitter:title" content="{{ article.label }} | GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
+    <meta name="twitter:description" content="Official text of GDPR–General Data Protection Regulation–made searchable by Algolia. Search Easily in chapters, articles and recitals to read faster and become GDPR compliant."/>
+    <meta name="twitter:title" content="{% if article.index != 1 %}{{ article.label }} | {% endif %}GDPR made searchable by Algolia. Chapters, articles and recitals easily readable" />
 
     {% for language_code in article.get_available_languages_code %}
         {% language language_code %}
@@ -128,9 +128,20 @@
                 <div class="recitals__header">
                     <div class="recitals__header__content">
                         <span class="link-icon">
-                            <i class="fa fa-link"></i>
+                            <img src="{% static 'img/ic-share.svg' %}" alt="Share icon">
                         </span>
-                        <span class="title">Suitable Recitals</span>
+                        <a href="mailto:?body=https%3A%2F%2Fgdpr.algolia.com%2F%20Official%20text%20of%20GDPR%20%E2%80%93%20General%20Data%20Protection%20Regulation%20%E2%80%93%20made%20searchable%20by%20Algolia.%20Easily%20search%20in%20chapters%2C%20articles%20and%20recitals%20to%20read%20faster%20and%20become%20GDPR%20compliant." class="share-link">
+                            <img src="{% static 'img/ic-mail.svg' %}" alt="Email icon">
+                            <span>Email</span>
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&mini=true" class="share-link" target="_blank">
+                            <img src="{% static 'img/ic-linkedin.svg' %}" alt="LinkedIn icon">
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}" class="share-link" target="_blank">
+                            <img src="{% static 'img/ic-twitter.svg' %}" alt="Twitter icon">
+                            <span>Twitter</span>
+                        </a>
                     </div>
                 </div>
                 <div class="recitals">
@@ -159,6 +170,9 @@
                         </div>
                         <h2></h2>
                         <p></p>
+                        <div class="recital-close">
+                            <span class="cross">X</span> <span>Close this recital</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,7 +190,7 @@
                 $recitalContentContainer.find('p').text(recitalContent);
                 $recitalContentContainer.toggleClass('open');
             });
-            $('.recital-content-close').click(function () {
+            $('.recital-close').click(function () {
                 $recitalContentContainer.removeClass('open');
             });
             $menuButton.click(function(){
