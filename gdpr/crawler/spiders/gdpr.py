@@ -1,40 +1,21 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy.loader import ItemLoader
-from scrapy.loader.processors import TakeFirst
+from scrapy.loader.processors import TakeFirst, Compose
 
 
 LANGUAGES = [
-    'BG',
-    'ES',
-    'CS',
-    'DA',
-    'DE',
-    'ET',
-    'EL',
-    'EN',
-    'FR',
-    'GA',
-    'HR',
-    'IT',
-    'LV',
-    'LT',
     'HU',
-    'MT',
-    'NL',
-    'PL',
-    'PT',
-    'RO',
-    'SK',
-    'SL',
-    'FI',
-    'SV',
 ]
 
 
 class TakeFirstLoader(ItemLoader):
     default_item_class = dict
     default_output_processor = TakeFirst()
+
+    content_out = Compose(
+        lambda x: ' '.join(x)
+    )
 
 
 def load_section(section_selector, current_language, article_index, section_index, parent_section_index=None):
@@ -47,7 +28,7 @@ def load_section(section_selector, current_language, article_index, section_inde
     section_loader.add_xpath('label', './tbody/tr/td[1]/p/text()')
 
     section_loader.add_xpath('content', './tbody/tr/td[2]/p/text()')
-    section_loader.add_xpath('content', './text()')
+    section_loader.add_xpath('content', './text()|./span/text()')
 
     for subsection_index, subsection_selector in enumerate(section_selector.xpath('./tbody/tr/td[2]/table')):
         for subsection in load_section(
