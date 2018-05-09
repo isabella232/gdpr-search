@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'compressor',
     'webpack_loader',
 
-    'gdpr.gdpr'
+    'gdpr'
 ]
 
 MIDDLEWARE = [
