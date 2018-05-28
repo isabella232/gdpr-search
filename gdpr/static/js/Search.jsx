@@ -63,6 +63,7 @@ class Search extends Component {
           onChange={this.handleChange.bind(this)}
           onReset={this.onEscape.bind(this)}
           onFocus={this.handleChange.bind(this)}
+          autoFocus={window.matchMedia('(min-width: 991.98px)').matches}
           translations={{
             placeholder: "Search in chapters, articles, recitals, …"
           }}
