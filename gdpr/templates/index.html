@@ -130,20 +130,22 @@
             <div class="right-container">
                 <div class="recitals__header">
                     <div class="recitals__header__content">
-                        <span class="link-icon">
-                            <img src="{% static 'img/ic-share.svg' %}" alt="Share icon">
+                        <span class="share__title">
+                            Share this
+                            </br>
+                            project
                         </span>
                         <a href="mailto:?body=https%3A%2F%2Fgdpr.algolia.com%2F%20Official%20text%20of%20GDPR%20%E2%80%93%20General%20Data%20Protection%20Regulation%20%E2%80%93%20made%20searchable%20by%20Algolia.%20Easily%20search%20in%20chapters%2C%20articles%20and%20recitals%20to%20read%20faster%20and%20become%20GDPR%20compliant." class="share-link">
-                            <img src="{% static 'img/ic-mail.svg' %}" alt="Email icon">
-                            <span>Email</span>
+                            <img src="{% static 'img/ic-mail.svg' %}" alt="Email icon" width="14px">
+                            <span class="share__label">Email</span>
                         </a>
                         <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&mini=true" class="share-link" target="_blank">
-                            <img src="{% static 'img/ic-linkedin.svg' %}" alt="LinkedIn icon">
-                            <span>LinkedIn</span>
+                            <img src="{% static 'img/ic-linkedin.svg' %}" alt="LinkedIn icon" width="14px">
+                            <span class="share__label">LinkedIn</span>
                         </a>
                         <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}" class="share-link" target="_blank">
-                            <img src="{% static 'img/ic-twitter.svg' %}" alt="Twitter icon">
-                            <span>Twitter</span>
+                            <img src="{% static 'img/ic-twitter.svg' %}" alt="Twitter icon" width="14px">
+                            <span class="share__label">Twitter</span>
                         </a>
                     </div>
                 </div>

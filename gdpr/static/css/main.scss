@@ -423,42 +423,45 @@ h1.title__container {
     align-items: center;
     justify-content: space-between;
 
-    .link-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      border: solid 1px rgb(161, 167, 181);
-      border-radius: 50%;
-
-      i {
-        text-align: center;
-        padding: 11px;
-        color: rgb(161, 167, 181);
-        font-size: 14px;
+    .share__title {
+      position: relative;
+      font-size: 12px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.42;
+      letter-spacing: normal;
+      color: rgba(#04143a, 0.24);
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -16px;
+        width: 1px;
+        height: 100%;
+        background-color: rgba(#798196, 0.16);
       }
+    }
+
+    .share__icon {
+      display: inline-block;
+    }
+
+    .share__label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.08;
+      letter-spacing: normal;
+      text-align: left;
+      color: rgba(#04143a, 0.5);
+      margin-top: 7px;
     }
 
     .share-link {
       text-align: center;
-      img {
-        display: inline-block;
-        margin-bottom: 7px;
-      }
-
-      span {
-        display: block;
-        font-size: 13px;
-        font-weight: 500;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.08;
-        letter-spacing: normal;
-        text-align: left;
-        color: #04143a;
-        opacity: 0.5;
-      }
     }
 
     .title {
